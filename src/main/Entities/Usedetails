@@ -1,0 +1,144 @@
+package com.example.pavanmartt.Entities;
+import java.util.List;
+import java.util.Set;
+
+import jakarta.persistence.*;
+@Entity
+@Table(name="User_Details")
+public class Userdetails {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="User_id")
+	private int userid;
+	
+	@Column(name="First_Name")
+	private String firstName;
+	
+	@Column(name="Last_Name")
+	private String lastName;
+	
+	@Column(name="Email")
+	private String email;
+	
+	@Column(name="Phno")
+	private String phno;
+	
+	@Column(name="UserName")
+	private String username;
+	
+	@Column(name="Password")
+	private String password;
+	
+	
+	@OneToOne(mappedBy = "user")
+    private Cart cart;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_address",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
+    private Set<Address> addresses;
+
+	 @ManyToMany
+	 @JoinTable(
+	        name = "user_products",
+	        joinColumns = @JoinColumn(name = "user_id"),
+	        inverseJoinColumns = @JoinColumn(name = "product_id"))
+	  private Set<Products> products;
+	
+	
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhno() {
+		return phno;
+	}
+
+	public void setPhno(String phno) {
+		this.phno = phno;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+
+	
+}
