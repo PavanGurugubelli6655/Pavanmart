@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+        <h2>Welcome to Your Dashboard</h2>
+        <p>45 crore+ customers across India trust Flipkart.com to be their number 1 online shopping destination. 
+        It is no surprise that more than a million sellers trust their products to be made available 24x7 on Flipkart. 
+        45 crore+ of customers across 19000+ pincodes,and access to shopping festivals like The Big Billion Days.</p>
+        
+        <img src="img_girl.jpg" alt="Pavanmart">
+        
+        
+        <p>Hello, <strong>${user.firstName} ${user.lastName}</strong>!</p>
+        <p>Email: ${user.email}</p>
+        <p>Phone: ${user.phno}</p>
+        <p>Username: ${user.username}</p>
+
+         <a href="logout">Logout</a>
+</body>
+</html>
